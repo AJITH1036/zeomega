@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=700, initial-scale=1.0">
+    <title>Models</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+</head>
+<body ng-app="" ng-init="bgcolor='blue'">
+
+    <form action="" name="myForm" >
+
+    Name <input type="text" ng-model="fname" name="fname" required>
+   
+    <!-- <h3>Status</h3>
+    {{myForm.fname.$valid}}
+    {{myForm.fname.$dirty}}
+    {{myForm.fname.$touched}}
+    <br> -->
+    <br><br>
+    
+    Email <input type="email" name="email" ng-model="email">
+    <span ng-show="myForm.email.$error.email">Not a valid email</span>
+    <br><br>
+
+    Colour <input type="text" name="color"  style="background-color:{{bgcolor}}" ng-model="bgcolor">
+    </form>
+</body>
+</html>

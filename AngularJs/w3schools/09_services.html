@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('ctrl',function($scope,$location){
+            $scope.myUrl = $location.absUrl();
+        });
+
+        app.controller('timeout',function($scope,$timeout){
+            $scope.myHeader = "Welcome to Zeomega";
+            $timeout(function(){
+                $scope.myHeader = "How are you today?";
+            },2000);
+        });
+
+        app.controller('interval',function($scope,$interval){
+            $scope.theTime = new Date().toLocaleTimeString();
+            $interval(function(){
+                $scope.theTime = new Date().toLocaleTimeString()
+            },1000)
+        })
+
+        app.service('myService',function(){
+            this.myFunc = function(x){
+                return x.toString(16);
+            }
+        })
+        
+        app.controller('customService',function($scope,myService){
+            $scope.new = myService.myFunc(255);
+        })
+
+    </script>
+    
+</head>
+<body ng-app="myApp">
+    <div>
+        <h3 ng-controller="ctrl">{{myUrl}}</h3>
+
+        <h4 ng-controller="timeout"> {{myHeader}}</h4>
+
+        <h4 ng-controller="interval">{{theTime}}</h4>
+
+        <h4 ng-controller="customService">{{new}}</h4>
+
+    </div>
+</body>
+</html>

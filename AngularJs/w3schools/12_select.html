@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=200, initial-scale=1.0">
+    <title>Select options</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+</head>
+<body ng-app="myApp">
+    <div ng-controller="ctrl">
+        <select  ng-model="selected" ng-options=" x for x in list">
+        </select>
+    </div>
+
+
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('ctrl',function($scope){
+            $scope.list = ['java','python','C#','C++','Ruby','Pearl','Swift']
+        })
+    </script>
+</body>
+</html>

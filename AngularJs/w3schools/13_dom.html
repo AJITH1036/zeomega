@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=auto, initial-scale=1.0">
+    <title>DOM</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="" ng-init="mySwitch=true">
+    <p ng-show="true">I am ng-show true statement</p>
+    <p ng-show="False">I am ng-show false</p>
+
+    <p ng-hide="true">I am ng-hide true statement</p>
+    <p ng-hide="false">I am ng-hide false statement</p>
+
+    <button ng-disabled="mySwitch">Click me</button>
+    <input type="checkbox" ng-model="mySwitch" id="">
+
+</body>
+</html>

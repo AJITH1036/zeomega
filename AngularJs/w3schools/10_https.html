@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+</head>
+<body ng-app="myApp" >
+    <script>
+        app = angular.module('myApp',[]);
+
+        app.controller('ctrl',function($scope,$http){
+           $http.get("welcome.html").then(function(response){
+            $scope.myWelcome = response.data;
+           })
+        });
+
+        app.controller('http',function($scope,$http){
+            $http.get("welcome.html").then(function(response){
+                $scope.content = response.data;
+                $scope.statusCode = respose.status;
+                $scope.statusText = response.statusText;
+            },function(response){
+                $scope.content = "something went wrong"
+            });
+        }); 
+    </script>
+    
+    <h1>Today's welcome message </h1>
+    <p ng-controller="ctrl">{{myWelcome}}</p>
+
+    <p ng-controller="http">
+        <b>content : {{content}}</b>
+    </p>
+
+</body>
+</html>

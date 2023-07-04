@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filters</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+</head>
+<body ng-app="myApp">
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('ctrl',function($scope){
+            $scope.name = "Ajith";
+            $scope.age = 25;
+            $scope.salary = 25000;
+            $scope.dob =  24/10/1997
+            $scope.currentTime = new Date()
+            $scope.skills = [
+                'java','c++','python','Ruby','Pearl','Swift'
+            ]
+        })
+    </script>
+
+    <div ng-controller="ctrl">
+        <h1>Employee Details</h1>
+        <p>Name - {{name | uppercase}}</p>
+        <p>Age - {{age}} </p>
+        <p>Salary - {{salary | currency : 'INR'}}</p>
+        <p>DOB - {{dob | date }}</p>
+        <p>Time - {{currentTime | date}}</p>
+        <p >Skills :-
+            <li ng-repeat="x in skills | filter:'a'">  {{x }} </li>
+        </p>
+
+    </div>
+</body>
+</html>

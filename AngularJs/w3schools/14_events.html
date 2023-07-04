@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body  ng-app="myApp">
+
+    <div ng-controller="ctrl">
+         <button ng-click="count = count+1"> Click me!</button>
+        <p>{{count}}</p>
+    </div>
+
+    <div ng-controller="show">
+
+    <button ng-click="showme()">click to show or hide!</button>
+      <div ng-show="showItems">
+        <p>Pizza</p>
+        <p>Burger</p>
+        <p>Tandoori</p>
+      </div>
+    </div>
+
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('ctrl',function($scope){
+            $scope.count = 0;
+            // $scope.handleAction = function(){
+            //     $scope.count++;
+            // }
+        })
+
+        app.controller('show',function($scope){
+            $scope.showItems = false;
+            $scope.showme = function(){
+                $scope.showItems = !$scope.showItems
+            }
+        })
+    </script>
+    
+</body>
+</html>

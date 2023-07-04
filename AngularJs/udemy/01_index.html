@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery</title>
+    <link rel="stylesheet" href="/udemy/style.css">
+    <link rel="stylesheet" href="../cdn/bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css">
+    <script src="../cdn/jquery3.6.4/jquery.min.js.odt"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script type="text/javascript" src="./index.js"></script>
+</head>
+
+<body ng-app="grocApp">   
+    <div class="navbar bg-dark" ng-controller="developer">
+        <h3 class= "text-white">Grocery list </h3>
+        <p class="text-white">Developed by {{name}}</p>
+    </div>
+
+    <groc-List></groc-List>
+
+</body>
+</html>
